@@ -1,0 +1,376 @@
+body {
+  font-size: 100%;
+  width: 100%;
+  color: #333;
+  background: #CCC;
+  line-height: 1.4em;
+  font-family: "Liberation Sans", "Helvetica Neue", Calibri, Geneva, Verdana, Arial, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.header-size (@font-size: 1em, @weight: bold, @style: normal) {
+  font-size: @font-size;
+  font-weight: @weight;
+  font-style: @style;
+  text-decoration: none;
+}
+
+.border-radius (@radius: 5px) {
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -o-border-radius: @radius;
+  -ms-border-radius: @radius;
+  border-radius: @radius;
+}
+
+.text-shadow (@x: -1px, @y: 1px, @blur: 1px, @color: #dbdbdb) {
+  text-shadow: @x @y @blur @color;
+  filter: dropshadow(color=@color, offx=@x, offy=@y);
+}
+
+.box-shadow (@x: 0, @y: 5px, @blur: 5px, @spread: -5px, @color: #000) {
+  -moz-box-shadow: @x @y @blur @spread @color;
+  -webkit-box-shadow: @x @y @blur @spread @color;
+  box-shadow: @x @y @blur @spread @color;
+}
+
+.gradient-bg(@start: rgba(235,235,235,1), @stop: rgba(190,190,190,1)) {
+background: @stop; /* Old browsers */
+background: -moz-linear-gradient(top, @start 51%, @stop 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(51%,@start), color-stop(100%,@stop)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, @start 51%,@stop 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, @start 51%,@stop 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, @start 51%,@stop 100%); /* IE10+ */
+background: linear-gradient(to bottom, @start 51%,@stop 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9f9', endColorstr='#f4f4f4',GradientType=0 ); /* IE6-9 */
+}
+
+.transition(@type: background-color, @duration: 1s) {
+  transition: @type @duration;
+  -moz-transition: @type @duration; /* Firefox 4 */
+  -webkit-transition: @type @duration; /* Safari and Chrome */
+  -o-transition: @type @duration; /* Opera */
+}
+
+.block-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1 {
+  .header-size(1.875em, bold, normal);
+}
+
+h2 {
+  .header-size(1.5em);
+}
+
+h3 {
+  .header-size(1.25em);
+}
+
+h4 {
+  .header-size(1.125em);
+}
+
+.required {
+  color: #FF0000;
+}
+
+.right {
+  float: right;
+  clear: right;
+}
+
+.left {
+  float: left;
+  clear: left;
+}
+
+.none {
+  display: none;
+}
+
+.block {
+  display: block;
+}
+
+.errorMsg-none {
+  display: none;
+}
+
+.errorMsg {
+    display: block;
+    .border-radius(3px);
+    padding: 2px;
+    background: #f88585;
+    border: 1px solid #bc0000;
+    color: #821010;
+    margin-bottom: 5px;
+    animation: show 1s linear forwards;
+}
+
+@keyframes show {
+    0%  { opacity: 0; transform: translateY(-30px); }
+    30% { transform: translateY(0px);}
+    100% { opacity: 1; }
+
+}
+
+header.top-bar {
+  margin-bottom: 50px;
+  background: #333;
+  height: 60px;
+  color: #CCC;
+  .box-shadow(0px, 0px, 2px, 2px, #555);
+  font-family: "Liberation Sans", "Helvetica Neue", Calibri, Geneva, Verdana, Arial, sans-serif;
+    
+  .container_12 {
+    padding-top: 15px;
+  }
+  
+  .grid_10 {
+    font-weight: bold;
+    
+    h1 {
+      font-size: 1.4rem;
+      .text-shadow(1px, 1px, 1px, #030303);
+    }
+  }
+}
+
+nav.navigation {
+  ul {
+    li {
+      display: inline;
+
+      a {
+        font-weight: normal;
+        margin-right: 10px;
+        padding-top: 35px;
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-bottom: 15px;
+        .border-radius(3px);
+        .text-shadow(1px, 1px, 1px, #111);
+      }
+      a:hover {
+        .transition(all, 0.3s);
+        background: #555;
+      }
+    }
+    li.active {
+      a {
+        background: #555;
+      }
+    }
+  }
+}
+
+.sidebar {
+  ul {
+    display: block;
+    width: 80%;
+    background-color: #EFEFEF;
+    .border-radius(3px);
+    .box-shadow(0, 1px, 2px, 1px, #A9A9A9);
+    li {
+      a {
+        display: block;
+        padding-left: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-bottom: solid 1px #CCC;
+        font-size: 0.875rem;
+        .text-shadow(1px, 1px, 1px, #FFF);
+      }
+      a:hover {
+        .transition(all, 0.3s);
+        background: rgba(180, 180, 190, 0.4);
+        border-bottom: 1px solid rgba(160, 160, 170, 0.6);
+      }
+    }
+  }
+}
+
+.form {
+  form {
+    fieldset {
+      legend {
+        padding-top: 10px;
+        padding-bottom: 5px;
+      }
+      label {
+        .text-shadow(1px, 1px, 1px, #EFEFEF);
+        display: block;
+        width: 23%;
+        float: left;
+      }
+      input {
+        padding-top: 7px;
+        padding-bottom: 7px;
+        padding-left: 3px;
+        width: 35%;
+        .box-shadow(0, 0px, 3px, 1px, #AAA);
+        margin-bottom: 10px;
+        border: 1px solid #DDD;
+        .gradient-bg(#F9F9F9, #F0F0F0);
+        .border-radius(5px);
+      }
+      input:active, input:focus {
+        .transition(all, 0.3s);
+        border: 1px solid rgba(80, 150, 190, 0.6);
+        .box-shadow(0, 0px, 3px, 1px, rgba(80, 150, 190, 0.4));
+      }
+      select {
+        .box-shadow(0, 0px, 3px, 1px, #AAA);
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+footer {
+  background: #333;
+  color: #CCC;
+  height: 20px;
+  font-size: 0.875rem;
+  margin-top: 40px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-top: 1px solid #111;
+  text-align: center;
+}
+
+.site-borders {
+  .box-shadow(0px, 0px, 2px, 2px, #555);
+}
+
+.content {
+  font-family: "Liberation Sans", "Helvetica Neue", Calibri, Geneva, Verdana, Arial, sans-serif;
+  
+  .start-table {
+    text-align: center;
+    
+    h2 {
+      font-size: 1.6em;
+      .text-shadow(1px, 1px, 1px, #999);
+    }
+    table {
+      border-collapse: separate; 
+      border-spacing: 0;
+      margin-top: 40px;
+      width: 100%;
+      tr.bg td {
+        .gradient-bg; 
+        padding: 10px; 
+        .box-shadow(0px, 1px, 1px, 0px, rgba(0,0,0,0.2));
+        .text-shadow(1px, 1px, 1px, #FFF);
+        color: #666;
+        font-size: 0.875rem;
+        a {
+          text-decoration: underline;
+          color: rgba(25,138,210,1);
+        }
+
+      }
+              
+      tr.bg td:hover {
+        .gradient-bg(@start: rgba(180,180,180,0.8), @stop: rgba(100,100,100,0.8));
+      }
+      tr td:first-child {
+         border-top-left-radius: 25px;
+         border-bottom-left-radius: 25px;
+      }
+      tr td:last-child {
+          border-top-right-radius: 25px;
+          border-bottom-right-radius: 25px;
+      }
+      
+      tr.spacer {
+          display: block;
+          height: 10px;
+        }
+    }
+  }
+  
+  .start-search {
+    text-align: center;
+    margin-bottom: 150px;   
+    legend {
+      text-indent: -9999em;
+      position: absolute;
+    }
+    
+    h2 {
+      font-size: 1.6em;
+      .text-shadow(1px, 1px, 1px, #999);
+    }
+    .start-searchBar {
+      width: 80%;
+      margin-top: 20px;
+      padding: 15px 15px;
+      .border-radius(30px);
+      border: none;
+      font-size: 1.1em;
+      .box-shadow(inset 1px, 1px, 2px, 1px, #999);
+    }
+  }
+  
+  .start-login {
+    form {
+      .block-center;
+      .border-radius(5px);
+      .box-shadow(0px, 1px, 1px, 0px, rgba(0,0,0,0.2));
+      background: gray;
+      max-width: 300px;
+      padding: 10px;
+      .gradient-bg();
+      color: #999;
+
+      font-size: 0.875rem;
+      
+      legend {
+        text-indent: -9999em;
+        position: absolute;
+      }
+      
+      label {
+        display: block;
+        width: 60px;
+        float: left;
+        .text-shadow(1px, 1px, 1px, #FFF);
+        clear: right;
+      }
+      
+      input[type="text"], input[type="password"] {
+        padding: 5px;
+        font-size: 0.875rem;
+        border: none;
+        margin-bottom: 10px;
+        .border-radius(3px);
+        .box-shadow(inset 1px, 1px, 1px, 1px, #DDD);
+        .right;
+      }
+      
+      input[type="submit"] {
+        background: #54a5de;
+        border: 1px solid #0d7ebf;
+        font-weight: bold;
+        .border-radius(3px);
+        padding: 4px 20px;
+        color: #F9F9F9;
+        .gradient-bg(@start: rgba(39,162,232,1), @stop: rgba(26,124,181,1));
+        
+      }
+      input[type="submit"]:hover {
+        .gradient-bg(@start: rgba(25,138,210,1), @stop: rgba(17,90,131,1));
+        border: 1px solid #0b6598;
+      }
+    }
+  }
+}
